@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<!--
+  JOMAR EYAS PORTFOLIO
+  index.html = structure and content only.
+  style.css  = all styling, animation and glitch effects.
+  script.js  = all interactions.
+-->
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jomar Eyas | Web Designer × Developer</title>
+
+  <!-- Google Fonts: Silkscreen (display), Inter (body), JetBrains Mono (technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- #site wraps the whole page. The glitch effect clones this element. -->
+  <div id="site">
+
+    <!-- BACKGROUND DEPTH: grid, glow and noise come from CSS; the markers below are small decorations -->
+    <div class="bg-decor" aria-hidden="true">
+      <span class="bg-corner bg-corner--tl"></span>
+      <span class="bg-corner bg-corner--tr"></span>
+      <span class="bg-corner bg-corner--bl"></span>
+      <span class="bg-corner bg-corner--br"></span>
+      <i>+</i><i>+</i><i>+</i><i>+</i><i>+</i><i>+</i>
+      <b></b><b></b><b></b>
+    </div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="nav">
+      <div class="container nav__inner">
+        <div class="nav__brand">
+          <a href="#home" class="nav__logo">JOMAR<span class="accent">_</span>EYAS</a>
+          <span class="nav__status label sys-status"><span class="sys-dot" aria-hidden="true"></span>ONLINE</span>
+        </div>
+
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#services">SERVICES</a></li>
+          <li><a href="#work">WORK</a></li>
+          <li><a href="#skills">SKILLS</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+
+        <div class="nav__actions">
+          <!-- Theme toggle: script.js changes data-theme on <html> -->
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch between dark and light mode">
+            <span class="theme-toggle__label" id="theme-label">SYSTEM // DARK</span>
+            <span class="theme-toggle__switch"></span>
+          </button>
+          <button class="nav__menu" id="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">MENU</button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+
+      <!-- ===== HERO ===== -->
+      <section class="hero" id="home">
+        <span class="bg-word bg-word--hero" aria-hidden="true">CODE</span>
+        <div class="container hero__inner">
+
+          <div class="hero__text">
+            <p class="label hero__tag sys-status"><span class="sys-dot" aria-hidden="true"></span>SYSTEM ONLINE</p>
+
+            <!-- Three type treatments: plain, blue highlight with offset shadow -->
+            <h1 class="display hero__title" id="hero-title">
+              <span class="line">Hey,</span>
+              <span class="line">I'm <span class="mark">Jomar.</span></span>
+            </h1>
+
+            <!-- Outlined word + filled blue block -->
+            <p class="hero__role display">
+              Web <span class="role-design">designer</span> <span class="accent">×</span> <span class="role-dev">developer</span>
+            </p>
+
+            <p class="hero__lead">
+              I design digital experiences where creative <span class="kw">design</span> meets <span class="kw kw--filled">code</span>, so they look good and work even better.
+            </p>
+
+            <div class="hero__buttons">
+              <a href="#work" class="btn btn--primary">VIEW MY WORK</a>
+              <a href="#contact" class="btn">LET'S TALK</a>
+            </div>
+
+            <!-- Small status strip -->
+            <ul class="hero__meta label">
+              <li><span class="dot"></span>STATUS: AVAILABLE</li>
+              <li>BASE: LAGUNA, PH</li>
+              <li>ACTIVE: 2023 — NOW</li>
+            </ul>
+          </div>
+
+          <!-- Layered composition: ghost frame, window, HUD labels -->
+          <div class="hero__visual" id="hero-visual">
+            <span class="coords label" id="coords">X:000 Y:000</span>
+            <div class="hud hud--a label">HP ▮▮▮▮▮▮▯ <span class="accent">LVL 03</span></div>
+            <div class="hud hud--b label">&lt;/&gt; build.exe <span class="accent">RUNNING</span></div>
+            <div class="hud hud--c label">UX ✓ UI ✓ RWD ✓</div>
+            <div class="hud hud--d label">SYS: STABLE<br>PING: 12ms</div>
+
+            <div class="window" id="window">
+              <div class="window__bar label">
+                <i></i><i></i><i></i>
+                <span>avatar.jsx // online</span>
+              </div>
+              <!-- AVATAR SLOT: drop your pixel avatar at assets/avatar/avatar.png.
+                   Until that file exists, the SVG placeholder below stays visible. -->
+              <div class="avatar-slot" id="avatar-slot">
+                              <svg class="avatar" viewBox="0 0 300 300" role="img" aria-label="Stylized hooded developer avatar with a glowing visor">
+                  <circle class="av-ring" cx="150" cy="150" r="104"/>
+                  <path class="av-body" d="M40 300c8-70 50-96 110-96s102 26 110 96z"/>
+                  <path class="av-line" d="M105 300l45-70 45 70"/>
+                  <path class="av-head" d="M150 62c-46 0-70 34-70 78v22c0 18 12 30 24 38l46 12 46-12c12-8 24-20 24-38v-22c0-44-24-78-70-78z"/>
+                  <path class="av-visor" d="M92 130h116v32c0 10-8 18-18 18h-80c-10 0-18-8-18-18z"/>
+                  <rect class="av-eye" x="100" y="142" width="38" height="5"/>
+                  <rect class="av-eye" x="162" y="142" width="38" height="5"/>
+                  <text class="av-code" x="20" y="40">const jomar = {</text>
+                  <text class="av-code av-code--accent" x="28" y="54">design: true, code: true</text>
+                  <path class="av-cursor" d="M232 190v36l10-9 7 16 6-3-7-15h13z"/>
+                </svg>
+                <img class="avatar-img" id="avatar-img" src="assets/avatar/avatar.png" alt="Jomar's pixel avatar" width="300" height="300" hidden>
+              </div>
+              <!-- Character-select style footer -->
+              <div class="window__panel label">
+                <span>CLASS: WEB DESIGNER × DEV</span>
+                <span class="xp"><i></i></span>
+                <span class="accent">LVL 02</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===== ABOUT ===== -->
+      <section id="about">
+        <span class="bg-word" aria-hidden="true">DESIGN</span>
+        <div class="container">
+          <p class="section-tag label reveal">// ABOUT · SEC_01</p>
+          <h2 class="display section-title section-title--big reveal">
+            Design is how it looks.<br>Code is how it works.<br><span class="accent">I like both.</span>
+          </h2>
+
+          <div class="about__grid reveal">
+            <div class="about__text">
+              <p>I'm a web designer and developer who likes building clean, simple websites that are easy to use. I care about how a page feels, and also about whether it loads fast and holds up on a phone.</p>
+              <p>I'm self-taught and learn by building: sketching a layout, coding it, then testing it on every screen size I can find. I make responsive, user-focused sites for individuals, small businesses and growing brands.</p>
+              <ul class="tags">
+                <li>Clean interfaces</li>
+                <li>Functional websites</li>
+                <li>User-focused experiences</li>
+                <li>Responsive products</li>
+              </ul>
+            </div>
+
+            <!-- Technical info block -->
+            <div class="panel">
+              <div class="panel__bar label"><span>SYSTEM.INFO</span><span><span class="dot"></span>LIVE</span></div>
+              <dl class="data-list">
+                <div><dt class="label">ROLE</dt><dd>WEB DESIGNER / DEVELOPER</dd></div>
+                <div><dt class="label">FOCUS</dt><dd>UI / UX / DEVELOPMENT</dd></div>
+                <div><dt class="label">LOCATION</dt><dd>LAGUNA, PH</dd></div>
+                <div><dt class="label">STATUS</dt><dd><span class="dot"></span>AVAILABLE</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SERVICES ===== -->
+      <section id="services">
+        <div class="container">
+          <p class="section-tag label reveal">// SERVICES · SEC_02</p>
+          <h2 class="display section-title reveal">What I <span class="outline">build</span></h2>
+
+          <div class="services__grid reveal">
+            <article class="service">
+              <div class="service__top"><span class="service__num display">01</span><span class="label"><span class="dot"></span>READY</span></div>
+              <svg class="service__icon" viewBox="0 0 40 40"><rect x="5" y="7" width="30" height="26"/><path d="M5 14h30M12 22h10M12 27h6"/></svg>
+              <h3 class="display">Web Design</h3>
+              <p>Clean, modern interfaces designed to engage users and elevate their brand.</p>
+              <span class="service__tag label">MODULE // UI.DESIGN</span>
+            </article>
+            <article class="service">
+              <div class="service__top"><span class="service__num display">02</span><span class="label"><span class="dot"></span>READY</span></div>
+              <svg class="service__icon" viewBox="0 0 40 40"><path d="M14 12 5 20l9 8M26 12l9 8-9 8M23 8l-6 24"/></svg>
+              <h3 class="display">Web Development</h3>
+              <p>Fast, responsive, and scalable websites built with modern technologies and clean code.</p>
+              <span class="service__tag label">MODULE // CODE.BUILD</span>
+            </article>
+            <article class="service">
+              <div class="service__top"><span class="service__num display">03</span><span class="label"><span class="dot"></span>READY</span></div>
+              <svg class="service__icon" viewBox="0 0 40 40"><path d="M5 32h30M8 26l8-8 6 5 11-14M27 9h6v6"/></svg>
+              <h3 class="display">Performance &amp; SEO</h3>
+              <p>Speed optimization, search visibility, and technical improvements.</p>
+              <span class="service__tag label">MODULE // SPEED.SEO</span>
+            </article>
+            <article class="service">
+              <div class="service__top"><span class="service__num display">04</span><span class="label"><span class="dot"></span>READY</span></div>
+              <svg class="service__icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="6"/><path d="M20 5v6M20 29v6M5 20h6M29 20h6M9 9l4 4M27 27l4 4M31 9l-4 4M13 27l-4 4"/></svg>
+              <h3 class="display">Maintenance</h3>
+              <p>Ongoing updates, security monitoring, content updates, and technical support.</p>
+              <span class="service__tag label">MODULE // SUPPORT.OPS</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PROJECT SPACE =====
+           Only the empty shell lives here. script.js builds the carousel,
+           counter and info panel from projects.js, so adding a project
+           never needs HTML changes. -->
+      <section id="work">
+        <span class="bg-word" aria-hidden="true">WORK</span>
+        <div class="container">
+          <p class="section-tag label reveal">// PROJECT SPACE · SEC_03</p>
+          <h2 class="display section-title reveal">Project <span class="accent">space</span></h2>
+          <p class="section-lead reveal">Educational and demo projects. Pick a mode, browse, and open one for details.</p>
+
+          <div class="ps panel reveal" id="project-space">
+            <div class="panel__bar label">
+              <span><i class="bar-dots"></i>PROJECT.SPACE // BROWSER</span>
+              <span><span class="dot"></span>READY</span>
+            </div>
+
+            <!-- Modes: exactly three, filled in from PROJECT_MODES -->
+            <div class="ps__modes" id="ps-modes" role="tablist" aria-label="Project mode"></div>
+
+            <div class="ps__panel" id="ps-panel" role="tabpanel">
+              <!-- Carousel. Arrow keys, swipe and the side controls all work.
+                   Side controls sit at the vertical middle of the preview area. -->
+              <div class="ps__viewport">
+                <div class="ps__stage" id="ps-stage" tabindex="0" role="group"
+                     aria-roledescription="carousel" aria-label="Projects. Use the left and right arrow keys to browse.">
+                  <div class="ps__track" id="ps-track"></div>
+                  <p class="ps__empty label" id="ps-empty" hidden>NO PROJECTS IN THIS MODE YET</p>
+                </div>
+                <button class="ps__nav ps__nav--prev" id="ps-prev" type="button" aria-label="Previous project"><span class="ps__nav-label" aria-hidden="true">&larr;&nbsp;PREV</span></button>
+                <button class="ps__nav ps__nav--next" id="ps-next" type="button" aria-label="Next project"><span class="ps__nav-label" aria-hidden="true">NEXT&nbsp;&rarr;</span></button>
+              </div>
+
+              <!-- Counter strip -->
+              <div class="ps__controls" id="ps-controls">
+                <div class="ps__counter">
+                  <span class="label">PROJECT</span>
+                  <strong class="display" id="ps-counter">01 / 01</strong>
+                  <span class="ps__progress" aria-hidden="true"><i id="ps-progress"></i></span>
+                </div>
+              </div>
+
+              <!-- Selected project information -->
+              <div class="ps__info" id="ps-info">
+                <div class="ps__main">
+                  <div class="ps__tags">
+                    <span class="ps-chip label" id="ps-category"></span>
+                    <span class="ps-badge label" id="ps-status"></span>
+                  </div>
+                  <h3 class="display ps__title" id="ps-title"></h3>
+                  <p class="ps-dummy label" id="ps-dummy" hidden></p>
+                  <p class="ps__desc" id="ps-desc"></p>
+                  <p class="ps__note label" id="ps-note" hidden></p>
+                </div>
+                <div class="ps__side">
+                  <div class="ps__row"><span class="label">STACK</span><span class="ps__tech" id="ps-tech"></span></div>
+                  <div class="ps__actions">
+                    <a class="btn btn--primary" id="ps-link" href="#" target="_blank" rel="noopener" hidden>VIEW PROJECT</a>
+                    <button class="btn btn--primary" id="ps-open" type="button">VIEW PROJECT</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="sr-only" id="ps-live" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PROCESS ===== -->
+      <section id="process">
+        <div class="container">
+          <p class="section-tag label reveal">// PROCESS · SEC_04</p>
+          <h2 class="display section-title reveal">How we <span class="outline">level up</span></h2>
+
+          <ol class="steps" id="steps">
+            <li class="step">
+              <span class="step__num display">01</span>
+              <span class="step__stage label">STAGE 01/04 <span class="accent">▮▯▯▯</span></span>
+              <h3 class="display">Inquiry</h3>
+              <p>Submit project details and scope.</p>
+            </li>
+            <li class="step">
+              <span class="step__num display">02</span>
+              <span class="step__stage label">STAGE 02/04 <span class="accent">▮▮▯▯</span></span>
+              <h3 class="display">Discovery</h3>
+              <p>Discuss goals, requirements, and timeline.</p>
+            </li>
+            <li class="step">
+              <span class="step__num display">03</span>
+              <span class="step__stage label">STAGE 03/04 <span class="accent">▮▮▮▯</span></span>
+              <h3 class="display">Design</h3>
+              <p>Create and refine the interface.</p>
+            </li>
+            <li class="step">
+              <span class="step__num display">04</span>
+              <span class="step__stage label">STAGE 04/04 <span class="accent">▮▮▮▮</span></span>
+              <h3 class="display">Build</h3>
+              <p>Develop, test, optimize, and launch.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===== SKILLS ===== -->
+      <section id="skills">
+        <span class="bg-word" aria-hidden="true">STACK</span>
+        <div class="container">
+          <p class="section-tag label reveal">// SKILLS · SEC_05</p>
+          <h2 class="display section-title reveal">Tech stack <span class="accent">loaded</span></h2>
+
+          <div class="panel terminal reveal">
+            <div class="panel__bar label">
+              <span><i class="bar-dots"></i>TECH STACK // LOADED</span>
+              <span>10/10 MODULES</span>
+            </div>
+            <div class="modules">
+              <div class="module">
+                <span class="label">MOD_01 · FRONTEND</span>
+                [ HTML ]
+                <small>&gt; markup ✓</small>
+                <i class="module__bar"></i>
+              </div>
+              <div class="module">
+                <span class="label">MOD_02 · FRONTEND</span>
+                [ CSS ]
+                <small>&gt; styling ✓</small>
+                <i class="module__bar"></i>
+              </div>
+              <div class="module">
+                <span class="label">MOD_03 · FRONTEND</span>
+                [ JAVASCRIPT ]
+                <small>&gt; logic ✓</small>
+                <i class="module__bar"></i>
+              </div>
+              <div class="module">
+                <span class="label">MOD_04 · BACKEND</span>
+                [ PHP ]
+                <small>&gt; server ✓</small>
+                <i class="module__bar"></i>
+              </div>
+              <div class="module">
+                <span class="label">MOD_05 · DATABASE</span>
+                [ MYSQL ]
+                <small>&gt; data ✓</small>
+                <i class="module__bar"></i>
+              </div>
+              <div class="module">
+                <span class="label">MOD_06 · BACKEND</span>
+                [ PYTHON ]
+                <small>&gt; scripting ✓</small>
+                <i class="module__bar"></i>
+              </div>
+              <div class="module">
+                <span class="label">MOD_07 · FRAMEWORK</span>
+                [ BOOTSTRAP ]
+                <small>&gt; layout ✓</small>
+                <i class="module__bar"></i>
+              </div>
+              <div class="module">
+                <span class="label">MOD_08 · DESIGN</span>
+                [ UI/UX DESIGN ]
+                <small>&gt; interface ✓</small>
+                <i class="module__bar"></i>
+              </div>
+              <div class="module">
+                <span class="label">MOD_09 · DESIGN</span>
+                [ RESPONSIVE DESIGN ]
+                <small>&gt; all screens ✓</small>
+                <i class="module__bar"></i>
+              </div>
+              <div class="module">
+                <span class="label">MOD_10 · OPTIMIZE</span>
+                [ SEO &amp; PERFORMANCE ]
+                <small>&gt; speed ✓</small>
+                <i class="module__bar"></i>
+              </div>
+            </div>
+            <p class="terminal__line label cursor-blink">&gt; all modules loaded</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== EXPERIENCE ===== -->
+      <section id="experience">
+        <div class="container">
+          <p class="section-tag label reveal">// EXPERIENCE · SEC_06</p>
+          <div class="experience reveal">
+            <p class="label"><span class="dot"></span>CURRENT<br>2023 — PRESENT<br>Independent projects · Self-taught</p>
+            <div>
+              <h3 class="display">Independent Developer &amp; Builder</h3>
+              <ul>
+                <li>Designed and built the interface of a core application with HTML, CSS and JavaScript.</li>
+                <li>Rebuilt and expanded the project with Python and Bootstrap to try out responsive frameworks.</li>
+                <li>Improved layouts and media queries so pages work well on phones, tablets and desktops.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CONTACT ===== -->
+      <section id="contact">
+        <span class="bg-word" aria-hidden="true">HELLO</span>
+        <div class="container">
+          <p class="section-tag label reveal">// CONTACT · SEC_07</p>
+          <h2 class="display section-title section-title--big reveal">Let's build<br><span class="accent">something.</span></h2>
+          <p class="section-lead reveal">Have an idea or a project in mind? Tell me about it and I'll get back to you.</p>
+
+          <div class="contact__grid reveal">
+            <div class="panel">
+              <div class="panel__bar label"><span>FORM // INPUT_01</span><span><span class="dot"></span>AWAITING INPUT</span></div>
+              <form class="form" id="contact-form">
+                <label>FIELD_01 · NAME<input type="text" name="name" required autocomplete="name"></label>
+                <label>FIELD_02 · EMAIL<input type="email" name="email" required autocomplete="email"></label>
+                <label>FIELD_03 · PROJECT TYPE
+                  <select name="type">
+                    <option>Web Design</option>
+                    <option>Web Development</option>
+                    <option>Performance &amp; SEO</option>
+                    <option>Maintenance</option>
+                    <option>Something else</option>
+                  </select>
+                </label>
+                <label>FIELD_04 · PROJECT DETAILS<textarea name="details" required placeholder="Goals, scope, and timeline"></textarea></label>
+                <button class="btn btn--primary" type="submit">SEND MESSAGE →</button>
+                <p class="form__message label" id="form-message" role="status"></p>
+              </form>
+            </div>
+
+            <aside class="panel">
+              <div class="panel__bar label"><span>CONTACT.INFO</span><span><span class="dot"></span>OPEN</span></div>
+              <div class="contact__info">
+                <div><span class="label">EMAIL</span><a href="mailto:eyasjomar1@gmail.com">eyasjomar1@gmail.com</a></div>
+                <div><span class="label">GITHUB</span><a href="https://github.com/delot0n" target="_blank" rel="noopener noreferrer">github.com/delot0n</a></div>
+                <div><span class="label">LINKEDIN</span><a href="https://www.linkedin.com/in/jomar-eyas-061489335/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jomar-eyas-061489335</a></div>
+                <div><span class="label">LOCATION</span><p>Laguna, Philippines</p></div>
+                <div><span class="label">AVAILABILITY</span><p>Open for Freelance Projects</p></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>
+          <div class="nav__logo">JOMAR<span class="accent">_</span>EYAS</div>
+          <p class="label">Freelance Web Designer &amp; Developer</p>
+        </div>
+        <ul class="footer__links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <ul class="footer__links">
+          <li><a href="https://www.linkedin.com/in/jomar-eyas-061489335/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com/delot0n" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="mailto:eyasjomar1@gmail.com">Email</a></li>
+        </ul>
+        <span class="footer__word display" aria-hidden="true">JOMAR_EYAS</span>
+        <p class="footer__copy label">© 2026 JOMAR EYAS. All rights reserved.</p>
+      </div>
+    </footer>
+
+  </div><!-- end #site -->
+
+  <!-- ===== PROJECT MODAL (outside #site so it is never cloned) ===== -->
+  <dialog class="modal" id="modal" aria-labelledby="modal-title">
+    <div class="modal__bar label">
+      <span>PROJECT.FILE // <span id="modal-number"></span></span>
+      <button type="button" id="modal-close">[ CLOSE ✕ ]</button>
+    </div>
+    <div class="modal__body">
+      <span class="ps-chip label" id="modal-category"></span>
+      <h3 class="display" id="modal-title"></h3>
+      <p class="ps-dummy label" id="modal-dummy" hidden></p>
+      <p id="modal-description"></p>
+      <div class="modal__shots" id="modal-shots"></div>
+      <dl class="data-list modal__data">
+        <div><dt class="label">STACK</dt><dd id="modal-tech"></dd></div>
+        <div><dt class="label">STATUS</dt><dd id="modal-status"></dd></div>
+      </dl>
+      <div class="status">
+        <span class="label">PROJECT STATUS</span>
+        <p>This is an educational project. No client, metrics, or results are claimed here.</p>
+      </div>
+      <a class="btn btn--primary modal__link" id="modal-link" href="#" target="_blank" rel="noopener" hidden>OPEN PROJECT ↗</a>
+    </div>
+  </dialog>
+
+  <script src="projects.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
